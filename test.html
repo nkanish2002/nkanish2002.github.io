@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>test</title>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+</head>
+<body>
+	<div id="test"></div>
+	<script type="text/javascript">
+		var x;
+		$.getJSON("https://api.github.com/users/nkanish2002/repos", function(data){
+			x = data;
+			var disp = "<ul>";
+			for(var i = 0; i < data.length; i++) {
+				var row = data[i];
+				disp += "<li><a href=\"" + row.html_url + "\">"+row.name+"</a>: " + row.description + "("+ row.language +")</li>";
+			}
+			disp += "</ul>"
+			$("#test").html(disp);
+		});
+	</script>
+</body>
+</html>

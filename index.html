@@ -12,6 +12,7 @@
 		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+		<link rel="stylesheet" href="https://cdn.rawgit.com/konpa/devicon/master/devicon.min.css">
 	</head>
 	<body>
 
@@ -27,8 +28,8 @@
 					<ul>
 						<li><a href="#one" class="active">About</a></li>
 						<li><a href="#two">Things I Can Do</a></li>
-						<!-- <li><a href="#three">A Few Accomplishments</a></li>
-						<li><a href="#four">Contact</a></li> -->
+						<li><a href="#three">My Projects</a></li>
+						<!-- <li><a href="#four">Contact</a></li> -->
 					</ul>
 				</nav>
 				<footer>
@@ -77,6 +78,14 @@
 							</section>
 
 						<!-- Three -->
+							<section id="three">
+								<div class="container">
+									<h3>My Projects</h3>
+									<p>A creative man is motivated by the desire to achieve, not by the desire to beat others.</p>
+									<div class="features">
+									</div>
+								</div>
+							</section>
 							<!-- <section id="three">
 								<div class="container">
 									<h3>A Few things about me</h3>
@@ -136,7 +145,7 @@
 							</section> -->
 
 						<!-- Five -->
-						<!-- 
+						<!--
 							<section id="five">
 								<div class="container">
 									<h3>Elements</h3>
@@ -479,7 +488,7 @@
 									</section>
 
 								</div>
-							</section>
+							</section> -->
 						
 
 					</div>
@@ -503,6 +512,35 @@
 			<script src="assets/js/util.js"></script>
 			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 			<script src="assets/js/main.js"></script>
+			<script type="text/javascript">
+				var language_mapping = {
+					"Python": "devicon-python-plain colored",
+					"CSS": "devicon-css3-plain colored",
+					"HTML": "devicon-html5-plain colored",
+					"C#": "devicon-csharp-line colored",
+					"Go": "devicon-go-plain colored",
+					"null": "devicon-ubuntu-plain colored"
+				}
+				$.getJSON("https://api.github.com/users/nkanish2002/repos", function(data){
+					x = data;
+					var disp = "";
+					for(var i = 0; i < data.length; i++) {
+						var row = data[i];
+						disp += '<article>\
+									<a href="' + row.html_url + '" class="image" style="width:50%">\
+										<i class="' + language_mapping[row.language] + '" style="font-size:72pt"></i>\
+									</a>\
+									<div class="inner">\
+										<h4>' + row.name + '</h4>\
+										<p>' + row.description + '</p>\
+									</div>\
+								</article>'
+					}
+					$(".features").html(disp);
+				});
+			</script>
 
+			<!-- Custom Scripts -->
+			
 	</body>
 </html>
