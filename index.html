@@ -522,18 +522,20 @@
 					"null": "devicon-ubuntu-plain colored"
 				}
 				$.getJSON("https://api.github.com/users/nkanish2002/repos", function(data){
-					x = data;
+					var x = data;
 					var disp = "";
 					for(var i = 0; i < data.length; i++) {
 						var row = data[i];
 						disp += '<article>\
-									<a href="' + row.html_url + '" class="image" style="width:50%">\
+									<a href="' + row.html_url + '" class="image" style="width:50%" target="_blank">\
 										<i class="' + language_mapping[row.language] + '" style="font-size:72pt"></i>\
 									</a>\
+									<a href="' + row.html_url + '" target="_blank">\
 									<div class="inner">\
-										<h4>' + row.name + '</h4>\
+										<h3>' + row.name + '</h3>\
 										<p>' + row.description + '</p>\
 									</div>\
+									</a>\
 								</article>'
 					}
 					$(".features").html(disp);
