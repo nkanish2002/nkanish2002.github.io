@@ -530,13 +530,13 @@
 									<a href="' + row.html_url + '" class="image" style="width:50%" target="_blank">\
 										<i class="' + language_mapping[row.language] + '" style="font-size:72pt"></i>\
 									</a>\
-									<a href="' + row.html_url + '" target="_blank">\
 									<div class="inner">\
+										<a href="' + row.html_url + '" target="_blank">\
 										<h3>' + row.name + '</h3>\
 										<p>' + row.description + '</p>\
+										</a>\
 									</div>\
-									</a>\
-								</article>'
+									</article>'
 					}
 					$(".features").html(disp);
 				});
